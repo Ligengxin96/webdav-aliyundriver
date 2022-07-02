@@ -1,3 +1,6 @@
+# This Repo Frok From https://github.com/expoli/webdav-aliyundriver
+原来的项目获取 refresh token 有问题导致服务起不来，但是原项目作者看起来没有维护了,本人需要用,所以自己建了一个新的项目和镜像
+
 说明：[1.1.0版本](https://github.com/zxbu/webdav-aliyundriver/releases/tag/v1.1.0)支持阿里Teambition网盘的webdav协议，后续的2.x版本仅支持阿里云盘，不再维护Teambition网盘版本
 # webdav-aliyundriver
 本项目实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
@@ -14,7 +17,7 @@ java -jar webdav.jar --aliyundrive.refresh-token="your refreshToken"
 ```
 ## 容器运行
 ```bash
-docker run -d --name=webdav-aliyundriver --restart=always -p 8080:8080  -v /etc/localtime:/etc/localtime -v /etc/aliyun-driver/:/etc/aliyun-driver/ -e TZ="Asia/Shanghai" -e ALIYUNDRIVE_REFRESH_TOKEN="your refreshToken" -e ALIYUNDRIVE_AUTH_PASSWORD="admin" -e JAVA_OPTS="-Xmx1g" zx5253/webdav-aliyundriver
+docker run -d --name=aliyunpan --restart=always -p 8080:8080  -v /etc/localtime:/etc/localtime -v /etc/aliyun-driver/:/etc/aliyun-driver/ -e TZ="Asia/Shanghai" -e ALIYUNDRIVE_REFRESH_TOKEN="your refreshToken" -e ALIYUNDRIVE_AUTH_PASSWORD="admin" -e JAVA_OPTS="-Xmx512m" ligengxin96/webdav-aliyundriver
 
 # /etc/aliyun-driver/ 挂载卷自动维护了最新的refreshToken，建议挂载
 # ALIYUNDRIVE_AUTH_PASSWORD 是admin账户的密码，建议修改
